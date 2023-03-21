@@ -1,0 +1,26 @@
+# Main project
+##############################################################################
+
+# Ignore everything on the config folder, except sample and default files
+config/*
+!config/defaults.yml
+!config/*-default*.yml
+!config/*-example.yml
+
+# Ignore ansible error files
+*.retry
+
+# Ignore python3 cache directories
+__pycache__/
+
+# Ignore log files when running in CI environment
+logs/*
+
+# Sandbox folder for user tests and for each role
+sandbox/*
+roles/*/sandbox/*
+!sandbox/readme.md
+
+# Backup folder for deployment files
+backup/*
+!backup/readme.md

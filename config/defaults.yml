@@ -1,0 +1,6 @@
+---
+
+# NFS settings default
+
+nfs:
+  version: 4

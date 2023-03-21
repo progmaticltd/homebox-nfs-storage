@@ -1,0 +1,7 @@
+---
+
+packages:
+  - gssproxy
+  - krb5-admin-server
+  - nfs-common
+  - nfs-kernel-server

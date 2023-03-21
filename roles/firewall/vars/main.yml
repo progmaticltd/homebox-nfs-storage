@@ -1,0 +1,17 @@
+---
+
+# These rules are included in numeric order,
+# to generate the final firewall rules set.
+rule_files:
+  - name: 00-init
+    include: true
+  - name: 10-base
+    include: true
+  - name: 10-outbound
+    include: true
+  - name: 30-ssh-autoban
+    include: true
+  - name: 40-in-dns
+    include: true
+  - name: 90-close
+    include: true

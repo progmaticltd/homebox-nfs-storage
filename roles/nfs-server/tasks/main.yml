@@ -1,0 +1,10 @@
+---
+
+- name: Install the packages
+  include_tasks: packages.yml
+
+- name: Configure the packages
+  include_tasks: config.yml
+
+- name: Configure authentication
+  include_tasks: authentication.yml

@@ -1,0 +1,12 @@
+---
+
+- name: Restart nftables
+  systemd:
+    name: nftables
+    state: restarted
+    enabled: true
+
+- name: Restart SSH
+  systemd:
+    name: ssh
+    state: restarted

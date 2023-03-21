@@ -1,0 +1,12 @@
+---
+
+## Main installation playbook
+
+- name: Install NFS storage
+  hosts: nfs-server
+  vars_files:
+    - '{{ playbook_dir }}/../config/defaults.yml'
+    - '{{ playbook_dir }}/../config/system.yml'
+  roles:
+    - role: nfs-server
+      tags: always

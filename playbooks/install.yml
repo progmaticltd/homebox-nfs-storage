@@ -1,0 +1,28 @@
+---
+
+## Installation playbook for one role
+
+# export the role you want to run in the ‘ROLE’ environment variable
+# and run the playbook.
+
+- name: Load the roles to run
+  hosts: nfs-server
+  tags: always
+  tasks:
+    - name: Load the roles to run
+      set_fact:
+        roles_list: '{{ lookup("env", "ROLE").split(",") }}'
+
+- name: Run the install tasks for each role
+  hosts: nfs-server
+  vars_files:
+    - '{{ playbook_dir }}/../config/system.yml'
+    - '{{ playbook_dir }}/../config/defaults.yml'
+  tasks:
+    - name: Run the role selected
+      tags: always
+      include_role:
+        name: '{{ role }}'
+      loop: '{{ roles_list }}'
+      loop_control:
+        loop_var: role

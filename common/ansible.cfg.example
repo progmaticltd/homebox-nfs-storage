@@ -1,0 +1,12 @@
+# Example to use with HomeBox
+
+[defaults]
+retry_files_enabled = False
+display_skipped_hosts = False
+stdout_callback = yaml
+roles_path = .:{{ playbook_dir }}/../../roles/
+remote_tmp = /tmp/
+
+# For playbook profiling
+# callback_whitelist = profile_roles
+# callback_whitelist = profile_tasks

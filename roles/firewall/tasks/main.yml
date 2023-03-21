@@ -1,0 +1,26 @@
+---
+
+- name: Load network information
+  include_tasks: facts.yml
+
+- name: Install the required packages
+  include_tasks: packages.yml
+
+- name: Prepare logging settings
+  tags: logging
+  include_tasks: logging.yml
+
+- name: Set the generic firewall rules
+  include_tasks: generic-rules.yml
+
+- name: Set the remote access firewall rules for public networks
+  include_tasks: public-access.yml
+
+- name: Set the remote access firewall rules for private networks
+  include_tasks: private-access.yml
+
+- name: Configure SSH
+  include_tasks: ssh-config.yml
+
+- name: Start the firewall
+  include_tasks: start.yml
